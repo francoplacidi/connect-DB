@@ -1,5 +1,5 @@
 <?php
-    $link = pg_connect("host=localhost port=5432 dbname=pruebatest user=postgres password=good");
+    $link = pg_connect("host=localhost port=5432 dbname=yourDB user=yourUser password=yourPassword");
     if (!$link){
         die("Can't connect to : " . pg_last_error());  
     }  
@@ -7,14 +7,14 @@
         echo "Connect";
     }
 
-    $query = "SELECT * FROM probando";
+    $query = "SELECT * FROM db";
     $question = pg_query($link, $query);
     if($question){
         if(pg_num_rows($question)>0){
             echo "<p>Id:<br />";
             echo "---------------------------------</p>";
             while($obj = pg_fetch_object($question)){
-                echo $obj->Name."<br />";
+                echo $obj->id."<br />";
             }  
         }
     }
