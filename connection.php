@@ -7,7 +7,7 @@
         echo "Connect";
     }
 
-    $query = "SELECT * FROM db";
+    $query = "SELECT * FROM table";
     $question = pg_query($link, $query);
     if($question){
         if(pg_num_rows($question)>0){
